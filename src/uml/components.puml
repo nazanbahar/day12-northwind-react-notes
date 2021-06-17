@@ -1,0 +1,29 @@
+' //Learning: Bkz.  Code your UML Diagrams using Plant UML in VS Code
+' //Youtube- TechyMaki - Part-1-3
+' //https://www.youtube.com/watch?v=wNM9M4gB6uY&list=PLJOjftTyJ2XdJxfhHUV3mt8o5aAIbK6f2&index=2
+' //Code your UML Diagrams using Plant UML in VS Code
+
+
+
+'//TODO: Example:1-Component UML
+@startuml "Order Taking"
+
+
+skinparam component {
+  FontSize 16
+  FontName Courier
+  BorderColor DarkTurquoise
+  BackgroundColor White
+  ArrowFontName Impact
+  
+  
+}
+
+[Orders] ..> [Menu] : use
+[Orders] ..> [Payment] : use
+[Customers] ..> [Orders] : use
+
+@enduml 
+
+
+
