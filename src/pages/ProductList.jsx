@@ -16,7 +16,7 @@ export default function ProductList() {
     //productService getProducts başarılı olursa...
     productService.getProducts().then( result => setProducts(result.data.data))
 
-  })
+  }, []);  //SECTION 12 ,[] - Boş bir array atmak gerekiyor! Aksi takdirde çalışır fakat sürekli istekte bulunur.
 
 
 //Table Celled Header settings: SwaggerUI - http://localhost:8080/swagger-ui.html adresinden bir adet ürün örneği alalım 
@@ -88,7 +88,41 @@ return (
 }
 
 /*==============================================================================
-ProductsList.jsx NOTES...
+ProductsList.jsx NOTES... 
+//SECTION -12 -STEPS Day12 Northwind React Lesson
+step1:useEffect function a Boş bir array atmak gerekiyor! Aksi takdirde çalışır fakat networke bakarsak sürekli istekte bulunur.
+===============================================================================
+//SECTION -12 -STEPS
+step1: ANCHOR: BUGFIX: ProductList..jsx - empty array at the end of useEffect function
+1. SECTION 12 ,[] - Boş bir array atmak gerekiyor! Aksi takdirde çalışır fakat sürekli istekte bulunur.
+BUGFIX: ProductList..jsx - empty array at the end of useEffect function
+2. Code Son Hali:
+....................................................................
+ //useEffect function...
+  useEffect(() => {
+    //...component yüklendiğinde yapılacakları yaz...(same=angular.load)
+    let productService = new ProductService()
+
+    //productService getProducts başarılı olursa...
+    productService.getProducts().then( result => setProducts(result.data.data))
+
+  }, []);
+.....................................................................
+3. NEDENİ:
+React Class Componentleri biliyorsan, React-LiyfeCyle için React'ın yaşam döngüsü için farklı
+ComponentDidMount(), ComponentDidUpdate gibi evetleri kullanıyorduk. Ama burada herşeyi useEffect ile halledebiliyoruz.
+2. Bu noktada biz eğer bir tane nesnenin her değişikliğe uğradığında sayfanın 
+yeniden render edilmesini istersek, o arrayi boş array içine yazarak state bilgisinin takibini yapabiliyoruz.
+Aksi takdirde elemanlar değiştiğinde sürekli istek atar. Bunu eklemediğimiz zaman ürünler
+listeleniyor. State değiştiği için tekrardan çalışıyor. State değiştikçe tekrardan 
+çalışacaktır. Kısacası sonsuz bir şekilde API'miz uygulamamıza istekte bulunuyor.
+3. Hooklarla çalışırken ,[] eklemeyi unutma! 
+4. Sürekli değişimi takip etmek istediğimiz stateleri bunun içine ekliyor olacağız.
+DidUpdate() leri yakalamak için.
+===============================================================================
+
+***************************ANCHOR**************************************
+
 ===============================================================================
 // SECTION -11 - STEPS
 step1: rfc snippet code
