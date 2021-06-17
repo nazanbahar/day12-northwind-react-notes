@@ -1,3 +1,75 @@
+DAY12 NORTHWIND REACT NOTES 
+======================================================================
+## Documantation
+[Documantation](https://tr.reactjs.org/)
+[react tutorial](https://reactjs.org/tutorial/tutorial.html#why-immutability-is-important)
+[github react](https://github.com/facebook/react/)
+[wesbos redux github](https://github.com/wesbos/redux/blob/master/examples/shopping-cart/actions/index.js)
+======================================================================
+## Eclipse-Swagger And React 
+### [eclipse swagger](http://localhost:8080/swagger-ui.html)
+### [browser react](http://localhost:3000/)
+======================================================================
+## SECTION
+======================================================================
+## Day11th
+### `npm install semantic-ui-react semantic-ui-css`
+### `npm install axios`
+======================================================================
+## Day12th
+### ``
+### ``
+======================================================================
+
+======================================================================
+
+======================================================================
+
+
+======================================================================
+
+======================================================================
+
+======================================================================
+
+======================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

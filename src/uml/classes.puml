@@ -1,0 +1,91 @@
+//TODO : Example:2-Classes UML
+@startuml "Order Taking Classes"
+
+class Order{
+OrderId : Guid
+TotalAmount : Decimal
+TotalTax: Decimal
+OrderItems : List<OrderItem>
+CustomerId: Guid
+Decimal TotalAmount()
+Decimal TotalTax()
+
+}
+
+class OrderItem{
+OrderItemId : Guid
+Quentity : Integer
+UnitPrice : Decimal
+UnitTax: Decimal
+Decimal TotalTax()
+Decimal TotalPrice() 
+ProductId : Guid
+}
+
+class Product{
+   ProductId : Guid
+   Name : string 
+   Price : Decimal
+   Tax: decimal
+   ImagePath :string
+
+}
+
+class Payment{
+   PaymentId : Guid
+   PaymentStatus : PaymentStatus
+   PaymentType: PaymentType 
+   Updated: DateTime 
+   Amount: Decimal 
+   OrderId: Guid
+   void Pay(nameOnCard, crediyCardNumber, securityCode, expretionDate)
+}
+
+enum PaymentType{
+    credit card, cash
+}
+
+class PaymentStatus{
+  inprogress, paid 
+
+}
+
+class Customer{
+    CustomerId: Guid
+    Name:string
+    Address: Address
+}
+
+
+class Address{
+    StreetLine1 : string
+    StreetLine2 : string 
+    Zip : Zip
+    City: City
+    State: State
+    Country: Country
+}
+
+class Zip{
+    code: Integer
+
+}
+
+enum City{}
+enum State{}
+
+
+Order "1" *--"n" OrderItem
+OrderItem o-- Product
+Payment o-- Order
+Order o-- Customer
+Customer *-- Address
+Address *-- City
+Address *-- Zip
+Address *--State
+Payment *-- PaymentType
+Payment *--PaymentStatus
+
+
+
+@enduml
