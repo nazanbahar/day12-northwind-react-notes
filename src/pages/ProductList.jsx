@@ -91,14 +91,17 @@ return (
 ProductsList.jsx NOTES... 
 //SECTION -12 -STEPS Day12 Northwind React Lesson
 step1:useEffect function a Boş bir array atmak gerekiyor! Aksi takdirde çalışır fakat networke bakarsak sürekli istekte bulunur.
+step2: React Prop lar ile çalışmak
 ===============================================================================
-//SECTION -12 -STEPS
+EXAMPLE:2
+1//SECTION -12 -STEPS
 step1: ANCHOR: BUGFIX: ProductList..jsx - empty array at the end of useEffect function
 1. SECTION 12 ,[] - Boş bir array atmak gerekiyor! Aksi takdirde çalışır fakat sürekli istekte bulunur.
 BUGFIX: ProductList..jsx - empty array at the end of useEffect function
 2. Code Son Hali:
 ....................................................................
- //useEffect function...
+Code Syntax... 
+//useEffect function...
   useEffect(() => {
     //...component yüklendiğinde yapılacakları yaz...(same=angular.load)
     let productService = new ProductService()
@@ -108,7 +111,7 @@ BUGFIX: ProductList..jsx - empty array at the end of useEffect function
 
   }, []);
 .....................................................................
-3. NEDENİ:
+3. NEDENİ: 
 React Class Componentleri biliyorsan, React-LiyfeCyle için React'ın yaşam döngüsü için farklı
 ComponentDidMount(), ComponentDidUpdate gibi evetleri kullanıyorduk. Ama burada herşeyi useEffect ile halledebiliyoruz.
 2. Bu noktada biz eğer bir tane nesnenin her değişikliğe uğradığında sayfanın 
@@ -117,11 +120,11 @@ Aksi takdirde elemanlar değiştiğinde sürekli istek atar. Bunu eklemediğimiz
 listeleniyor. State değiştiği için tekrardan çalışıyor. State değiştikçe tekrardan 
 çalışacaktır. Kısacası sonsuz bir şekilde API'miz uygulamamıza istekte bulunuyor.
 3. Hooklarla çalışırken ,[] eklemeyi unutma! 
-4. Sürekli değişimi takip etmek istediğimiz stateleri bunun içine ekliyor olacağız.
+4. AMAÇ: Sürekli değişimi takip etmek istediğimiz stateleri bunun içine ekliyor olacağız.
 DidUpdate() leri yakalamak için.
 ===============================================================================
+*****************************************************************
 
-***************************ANCHOR**************************************
 
 ===============================================================================
 // SECTION -11 - STEPS
