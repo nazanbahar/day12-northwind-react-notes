@@ -12,19 +12,83 @@ DAY12 NORTHWIND REACT NOTES
 ======================================================================
 ## SECTION
 ======================================================================
-## Day11th
+## Day11th intalled packages
 ### `npm install semantic-ui-react semantic-ui-css`
 ### `npm install axios`
 ======================================================================
-## Day12th
+## Day12th intalled packages
 ### ``
 ### ``
 ======================================================================
+## CREATE FILE - COMPONENT
+### CREATE LAYOUT FILE = SignedIn.jsx
+1. layouts--> Right Click > New File> FileName= SignedIn.jsx
+path: src\layouts\SignedIn.jsx
 
+### CREATE LAYOUT FILE = SignedOut.jsx
+2. layouts--> Right Click > New File> FileName= SignedOut.jsx
+path: src\layouts\SignedOut.jsx
+
+
+
+
+
+### ``
+======================================================================
+## Google search: `semantic ui react`
+[semantic ui react](https://react.semantic-ui.com/)[semantic ui react]
+
+======================================================================
+## All Steps - SECTION -12 -STEPS Day12 Northwind React Lesson
+===========================================================================
+### step1:useEffect function a Boş bir array atmak gerekiyor! Aksi takdirde çalışır fakat networke bakarsak sürekli istekte bulunur.
+`path src\pages\ProductList.jsx`
+===========================================================================
+### step2: React Prop lar ile çalışmak
+1. React'in en önemli konusu Propslar ile çalışmak.
+2. Bir component'de diğerine geçiş yaparken veri taşımayla ilgili 
+kısacası React'da Prop'larla ilgili bir çalışma yapacağız.
+3. React ana konusu bir component'den alt component'e data veya event nasıl taşırız?
+============================================================================
+
+****************************************************************************
+============================================================================
+### SENARYO: 1 - FAKE bir Autontication Ortamı Oluşturacağız. 
+1. google search: semantic ui react 
+AMAÇ: end-pointlerimize hızlıca ulaşmak
+2. FAKE bir Autontication Ortamı Oluşturacağız. 
+s1. Örneğin, şuan sisteme giriş yapmamış 
+giriş yapmamış birisi için ya kayıt ol(register) yada giriş yap(Login) olabilir.
+s2. Bu kişi sisteme giriş yapmış olabilir. 
+Sisteme giriş yaptığında burada başka bir Componentin görünmesini istiyoruz. 3. Kısacası, biz burada iki adet buton gösterebiliriz. Giriş yapmadığı takdirde → SignUp yada Login butonu 
+Yada giriş yaptığında da SigIn yada SingUp gerçekleştirdiğinde burada kişi ile ilgili bir bilgi oluşturabilirim.
+======================================================================
+
+
+## SECTION-12 STEPS
+### step1: rfc ile componentimizi oluşturalım.
+1. SignedOut.jsx
+2. SingedIn.jsx
+### step2: Öncelikle daha basit olduğu için SignedOut.jsx i yapalım.
+1. div içine iki adet buton ekle.
+2.  <Button>Giriş yap</Button>
+    <Button>Kayıt ol</Button>
+
+### step3: SignedIn.jsx i yapalım.
+1. ÖZETLE: Bir div içinde Menu Item > 
+s1. bir Image,
+s2. Bir tane dropdown, onu menu formatında gösterecek. İçerisinde de elemanlar olacak.
+
+#### SUMMARY:React'da iki component arasında bilgi(event) geçişini kısacası Propları öğreneceğiz.  
+
+### step4: Navi.jsx 'de iki componenti çağır
+1. SignedOut.jsx -- calling component
+2. SingedIn.jsx --calling component
+
+======================================================================
 ======================================================================
 
 ======================================================================
-
 
 ======================================================================
 
