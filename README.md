@@ -100,6 +100,46 @@ s2. Bir tane dropdown, onu menu formatında gösterecek. İçerisinde de elemanl
 2. Buttonlara primary özelliği ver.
 3. Buttonlara style ver.
 ======================================================================
+### step7:Sisteme Giriş Yapılması Senaryosu
+1. Sisteme Giriş yapıldığında user and photo bilgisi görünsün.
+2. Sistemden çıkış yapıldığında ise Giriş yap ve Kayıt ol butonlarının görünmesini istiyoruz.
+3. Dolayısıyla bu nokta bize bu state önemli.
+4. Giriş yap ve Kayıt ol bilgisinin gösterilip göstermeyeceğne karar veren Nav.jsi'dir.
+5. Navi.jsx'e geldiğimiz zaman bizim bir şart göstermen lazım. example.SignedOut  ve SignedIn  için.
+
+6. Navi.jsx
+<!-- <Menu.Menu position="right">
+    <CartSummary />
+    <SignedOut />
+    <SignedIn />
+</Menu.Menu> -->
+
+### SENARYO - Hangisi göstereceğimiz karar vermek- NAVI
+1. Eğer kişi Authentice olmuşsa  SignedIn i göster 
+2. Authentice olmamışsa SignOut i göster 
+3. YILDIZLI NOT: Bunlardan hangisini göstereceğine karar verecek olan Navi'dir.
+4. YILDIZLI NOT: Bir Component'te senin bir şarta göre birşeyler yapman lazım. Bir datayı tutman lazım ise orada AKLINA STATE gelsin. Yani o componentin datası kısacası. Bu işin en basic kısmı. Biz bir sonraki aşamada alt componente data taşıyacağız. 
+5. Bizim SingIn ve SignOut'a tıkladığımızda state i değiştirmesi lazım. 
+6. Bizim Şuan Navi miz içerisinde
+Navi= {SignIn, SingOut} var. hangisini göstereceğine karar verecek olan Navigation olduğu için State bilgisini Navi içinde tutmak zorundasın. Çünkü o SI yada SO u gösterecek. 
+7. Ama biz state bilgisini SI yada SO 'dan değiştirebilmelisin. O buttonlara tıklayarak değiştirebilmelisin. 
+8. O yüzden biz navi içindeki state i biz SI ve SO'a taşımamız gerekiyor. O yüzden state konusu React için çok önemli. 
+9. Yine bir hook yazacağız. 
+React'de useState hook unu kullabilmemiz için.
+
+======================================================================
+### step8:Hook Yazmak - Navi.jsx
+1. State i hook un içinde tanımlayacağız. 
+2. Ternay Operatörü ile State bilgisi tutalım.
+###  {isAuthenticated ? <SignedIn /> : <SignedOut />}
+
+
+
+
+
+
+
+
 
 ======================================================================
 
