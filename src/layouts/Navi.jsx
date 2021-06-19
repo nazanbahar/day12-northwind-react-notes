@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState } from "react"; //intelicense
 import { Container, Menu } from "semantic-ui-react"; //for failed to compile error...
 import CartSummary from "./CartSummary";
 import SignedOut from "./SignedOut";
 import SignedIn from "./SignedIn";
 
 export default function Navi() {
+  //destructure
   const [isAuthenticated, setIsAuthenticated] = useState(true);
 
   return (
