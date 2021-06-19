@@ -15,8 +15,8 @@ export default function Navi() {
           <Menu.Menu position="right">
             <CartSummary />
 
-            <SignedOut/>
-           <SignedIn/>
+            <SignedOut />
+            <SignedIn />
           </Menu.Menu>
         </Container>
       </Menu>

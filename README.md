@@ -42,6 +42,7 @@ path: src\layouts\SignedOut.jsx
 ## All Steps - SECTION -12 -STEPS Day12 Northwind React Lesson
 ===========================================================================
 ### step1:useEffect function a Boş bir array atmak gerekiyor! Aksi takdirde çalışır fakat networke bakarsak sürekli istekte bulunur.
+#### SECTION 12 ,[] - Boş bir array atmak gerekiyor! Aksi takdirde çalışır fakat sürekli istekte bulunur.
 `path src\pages\ProductList.jsx`
 ===========================================================================
 ### step2: React Prop lar ile çalışmak
@@ -67,23 +68,38 @@ Yada giriş yaptığında da SigIn yada SingUp gerçekleştirdiğinde burada ki�
 
 ## SECTION-12 STEPS
 ### step1: rfc ile componentimizi oluşturalım.
+#### Signed Out.jsx and SingedIn.jsx components has been added.
 1. SignedOut.jsx
 2. SingedIn.jsx
+======================================================================
 ### step2: Öncelikle daha basit olduğu için SignedOut.jsx i yapalım.
 1. div içine iki adet buton ekle.
 2.  <Button>Giriş yap</Button>
     <Button>Kayıt ol</Button>
-
+======================================================================
 ### step3: SignedIn.jsx i yapalım.
 1. ÖZETLE: Bir div içinde Menu Item > 
 s1. bir Image,
 s2. Bir tane dropdown, onu menu formatında gösterecek. İçerisinde de elemanlar olacak.
-
+======================================================================
 #### SUMMARY:React'da iki component arasında bilgi(event) geçişini kısacası Propları öğreneceğiz.  
-
+======================================================================
 ### step4: Navi.jsx 'de iki componenti çağır
+#### Calling Signed Out.jsx and SingedIn.jsx components in Navi.jsx.
 1. SignedOut.jsx -- calling component
 2. SingedIn.jsx --calling component
+======================================================================
+### step5: SignIn.jsx 'de pointing ve kullanıcı ismi Vermek
+1.  userName and pointing has been added
+<Dropdown pointing="top left" text="Nazan">
+
+======================================================================
+
+======================================================================
+
+======================================================================
+
+
 
 ======================================================================
 ======================================================================

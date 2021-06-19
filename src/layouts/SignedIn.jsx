@@ -11,7 +11,7 @@ export default function SignedIn() {
           src="https://avatars.githubusercontent.com/u/77123580?s=400&u=b8eccdb61d901b320fec71878787f37ed0fca9ac&v=4"
         />
 
-        <Dropdown>
+        <Dropdown pointing="top left" text="Nazan">
           <Dropdown.Menu>
             <Dropdown.Item text="Bilgilerim" icon="info" />
             <Dropdown.Item text="Çıkış" icon="sign-out" />
@@ -25,6 +25,19 @@ export default function SignedIn() {
 /* SECTION12:Steps - SignedIn.jsx NOTE
 step1: rfc ile componentimizi oluşturalım.
 step2: Menü şeklinde açılır kutu yapacağız. 
+step3:Metu Item içinde avatar ekleyelim, sağa dayalı olsun.
+ÖZETLE: Bir div içinde Menu Item > 
+s1. bir Image,
+s2. Bir tane dropdown, onu menu formatında gösterecek. İçerisinde de elemanlar olacak.
+9. UYARI: Swmantic-ui bug ı var. 
+step4: <Dropdown.Item> içine text geçmek
+Step5: SignInjsx'de Dropdown içine pointing özelliği eklemek ve kullanıcı ismini eklemek
+<Dropdown pointing="top left" text="Nazan">
+
+==================================================================================================
+step1: rfc ile componentimizi oluşturalım.
+==================================================================================================
+step2: Menü şeklinde açılır kutu yapacağız. 
 1. <Menu.Item> ekle
     <div>
       <Menu.Item>
@@ -32,8 +45,8 @@ step2: Menü şeklinde açılır kutu yapacağız.
       </Menu.Item>
     </div>
 2. import { Menu } from "semantic-ui-react"; 
-
-step2:Metu Item içinde avatar ekleyelim, sağa dayalı olsun.
+==================================================================================================
+step3:Metu Item içinde avatar ekleyelim, sağa dayalı olsun.
 1. avatar ekle
 <Image avatar/>
 2. sağa dayalı
@@ -92,10 +105,15 @@ export default function SignedIn() {
   );
 }
 ............................................................................
-step3: <Dropdown.Item> içine text geçmek
+==================================================================================================
+step4: <Dropdown.Item> içine text geçmek
  <Dropdown.Menu>
      <Dropdown.Item text="Bilgilerim" icon="info"/>
         <Dropdown.Item text="Çıkış" icon="sign-out"/>            
      </Dropdown.Menu>                
 
+=======================================================================
+Step5: SignInjsx'de Dropdown içine pointing özelliği eklemek ve kullanıcı ismini eklemek
+<Dropdown pointing="top left" text="Nazan">
+==================================================================================================
 */
