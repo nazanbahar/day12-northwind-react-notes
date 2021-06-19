@@ -130,18 +130,19 @@ React'de useState hook unu kullabilmemiz için.
 ======================================================================
 ### step8:Hook Yazmak - Navi.jsx
 1. State i hook un içinde tanımlayacağız. 
-2. Ternay Operatörü ile State bilgisi tutalım.
+2. useState importunu ekleyelim.
+import React, { useState } from "react";
+3. Destructor yapalım. 
+const [isAuthenticated, setIsAuthenticated] = useState(true);
+4. Ternay Operatörü ile State bilgisi tutalım.
 ###  {isAuthenticated ? <SignedIn /> : <SignedOut />}
-
-
-
-
-
-
-
-
+Biz sisteme kayıt olmadıysak butonların gelmesi gerekiyor. Giriş yap, Kayıt ol gibi. Kayıt olmuşsak kullanıcı bilgilerimizin gelmesi gerekiyor.
 
 ======================================================================
+### step9: State i Değiştiren Fonksiyon(setIsAuthenticated) ile State Değiştirmek - Navi.jsx
+1. Çıkış yap butonuna bastığımızda isAuthenticated ı değiştirmem gerekiyor.
+2. setIsAuthenticated ı kullanarak ona true yada false bilgini geçebilirsin.
+3. SigIn.jsx'den başlayalım.
 
 
 
