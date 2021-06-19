@@ -94,7 +94,11 @@ s2. Bir tane dropdown, onu menu formatında gösterecek. İçerisinde de elemanl
 <Dropdown pointing="top left" text="Nazan">
 
 ======================================================================
+### step6: SignOut.jsx 'de 
+1. Buttonları container içine al.
 
+2. Buttonlara primary özelliği ver.
+3. Buttonlara style ver.
 ======================================================================
 
 ======================================================================
