@@ -1,7 +1,8 @@
 import React from "react";
 import { Menu, Image, Dropdown } from "semantic-ui-react"; //intelicense
 
-export default function SignedIn() {
+// SECTION12 : Dropdown.Item onClick={}
+export default function SignedIn({ signOut }) { //SECTION 12- props(-), destructure obje(+)
   return (
     <div>
       <Menu.Item>
@@ -14,7 +15,7 @@ export default function SignedIn() {
         <Dropdown pointing="top left" text="Nazan">
           <Dropdown.Menu>
             <Dropdown.Item text="Bilgilerim" icon="info" />
-            <Dropdown.Item text="Çıkış" icon="sign-out" />
+            <Dropdown.Item onClick={signOut} text="Çıkış" icon="sign-out" />
           </Dropdown.Menu>
         </Dropdown>
       </Menu.Item>
@@ -34,10 +35,37 @@ step4: <Dropdown.Item> içine text geçmek
 Step5: SignInjsx'de Dropdown içine pointing özelliği eklemek ve kullanıcı ismini eklemek
 <Dropdown pointing="top left" text="Nazan">
 
+step6: Props Kullanmak
+1. Biz bu değerleri orada nasıl kullanacağız. SignIn 'e git.
+2. Biz Navi.jsx'de bu hareketi yaptığımızda; 
+SignIn.jsx içindeki return fonksiyonu çağrılıyor. 
+Demekki onlarda onun parametreleri biz de props diye geçebiliriz.
+3. SignIn.jsx'de function içinde props parametresi geçmek
+export default function SignedIn() {x}
+s1. props geçmek
+export default function SignedIn(props) { }
+
+step7. Dropdown.Item'a  onClick eventi vermek- (for Çıkış)
+1. OnClick event vermek Çıkış buttonu için
+<Dropdown.Item text="Çıkış" icon="sign-out" />
+2. Navi.jsx'de singOut={handleSignOut} çalışacaktır.
+3. Alt Componentte kullanacağımız isim signOut'dur.
+4. SignOut'a tıkladığımızda çalışmasını istiyoruz.
+5. YILIDIZLI NOT: Ne yapıyor. default true, handleSignOut dediğimizde false yapıyor.
+6. SignIn.jsx'de <Dropdown.Item> içine OnClick event vermek        
+<Dropdown.Item onClick={props.signOut} text="Çıkış" icon="sign-out" />
+
+
+step8: propsları kaldıralım. obje destructer edelim.
+1. changed code:
+changed code → export default function SignedIn(props) { //SECTION 12- props
+changed code → <Dropdown.Item onClick={props.signOut} text="Çıkış" icon="sign-out" />
+22. New destructure obje code
+
 ==================================================================================================
-step1: rfc ile componentimizi oluşturalım.
+EXAMPLE: rfc ile componentimizi oluşturalım.
 ==================================================================================================
-step2: Menü şeklinde açılır kutu yapacağız. 
+EXAMPLE: Menü şeklinde açılır kutu yapacağız. 
 1. <Menu.Item> ekle
     <div>
       <Menu.Item>
@@ -46,7 +74,7 @@ step2: Menü şeklinde açılır kutu yapacağız.
     </div>
 2. import { Menu } from "semantic-ui-react"; 
 ==================================================================================================
-step3:Metu Item içinde avatar ekleyelim, sağa dayalı olsun.
+EXAMPLE:Metu Item içinde avatar ekleyelim, sağa dayalı olsun.
 1. avatar ekle
 <Image avatar/>
 2. sağa dayalı
@@ -106,14 +134,53 @@ export default function SignedIn() {
 }
 ............................................................................
 ==================================================================================================
-step4: <Dropdown.Item> içine text geçmek
+EXAMPLE: <Dropdown.Item> içine text geçmek
  <Dropdown.Menu>
      <Dropdown.Item text="Bilgilerim" icon="info"/>
         <Dropdown.Item text="Çıkış" icon="sign-out"/>            
      </Dropdown.Menu>                
 
 =======================================================================
-Step5: SignInjsx'de Dropdown içine pointing özelliği eklemek ve kullanıcı ismini eklemek
+EXAMPLE: SignInjsx'de Dropdown içine pointing özelliği eklemek ve kullanıcı ismini eklemek
 <Dropdown pointing="top left" text="Nazan">
+==================================================================================================
+EXAMPLE: Dropdown.Item'a onClick eventi vermek (for Çıkış)
+1. OnClick event vermek Çıkış buttonu için
+<Dropdown.Item text="Çıkış" icon="sign-out" />
+2. Navi.jsx'de singOut={handleSignOut} çalışacaktır.
+3. Alt Componentte kullanacağımız isim signOut'dur.
+4. SignOut'a tıkladığımızda çalışmasını istiyoruz.
+5. YILIDIZLI NOT: Ne yapıyor. default true, handleSignOut dediğimizde false yapıyor.
+6. SignIn.jsx'de <Dropdown.Item> içine OnClick event vermek        
+<Dropdown.Item onClick={props.signOut} text="Çıkış" icon="sign-out" />
+..............................................................................................
+7. Code Son hali
+import React from "react";
+import { Menu, Image, Dropdown } from "semantic-ui-react"; //intelicense
+
+// SECTION12 : Dropdown.Item onClick={}
+export default function SignedIn(props) { //SECTION 12- props
+  return (
+    <div>
+      <Menu.Item>
+        <Image
+          avatar
+          spaced="right"
+          src="https://avatars.githubusercontent.com/u/77123580?s=400&u=b8eccdb61d901b320fec71878787f37ed0fca9ac&v=4"
+        />
+
+        <Dropdown pointing="top left" text="Nazan">
+          <Dropdown.Menu>
+            <Dropdown.Item text="Bilgilerim" icon="info" />
+            <Dropdown.Item onClick={props.signOut} text="Çıkış" icon="sign-out" />
+          </Dropdown.Menu>
+        </Dropdown>
+      </Menu.Item>
+    </div>
+  );
+}
+..............................................................................................
+==================================================================================================
+
 ==================================================================================================
 */

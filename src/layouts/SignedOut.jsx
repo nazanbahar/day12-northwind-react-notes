@@ -2,11 +2,11 @@ import React from "react";
 
 import { Button, MenuItem } from "semantic-ui-react"; //intelisence
 
-export default function SignedOut() {
+export default function SignedOut({signIn}) { //SECTION 12: props geçmek - SignedOut(props)
   return (
     <div>
       <MenuItem>
-        <Button primary>Giriş yap</Button>
+        <Button onClick={signIn} primary>Giriş yap</Button>
         <Button primary style={{marginLeft:"0.5em"}}>Kayıt ol</Button>
       </MenuItem>
     </div>
@@ -25,6 +25,15 @@ step5: Style Vermek - Buttonlar arasındaki bitişikliği ayır. → style={{}}
 Neden style={{}} veriyoruz. Çünkü obje veriyoruz. Margin-top gibi değerler veriyoruz.
 Bunları virgülle verebiliriz.
  <Button primary style={{marginLeft:"0.5em"}}>Kayıt ol</Button>
+step6:  props geçmek - SignedOut(props)
+export default function SignedOut(props) { //SECTION 12: props geçmek - SignedOut(props)
+step7: YILDIZLI NOT: SingedOut.jsx
+1. heryere props yazmak yerine obje destruct etmemiz laızm.
+2. changed code → export default function SignedOut(props) {}
+3. new destruct obje code → export default function SignedOut({signIn}) {}
+4. her yere props demene gerek kalmaz.
+changed code → <Button onClick={props.signIn} primary>Giriş yap</Button>
+new code →   <Button onClick={signIn} primary>Giriş yap</Button>
 ==================================================================================================
 step1: rfc ile componentimizi oluşturalım.
 ==================================================================================================
@@ -57,4 +66,43 @@ Bunları virgülle verebiliriz.
 4. marginLeft soldakine değer veriyoruz.
  <Button primary style={{marginLeft:"0.5em"}}>Kayıt ol</Button>
 ==================================================================================================
+EXAMPLE: 
+1. props geçmek - SignedOut(props)
+......................................................................
+changed code: props geçmek - SignedOut(props)
+import React from "react";
+
+import { Button, MenuItem } from "semantic-ui-react"; //intelisence
+
+export default function SignedOut() { //SECTION 12: props geçmek - SignedOut(props)
+  return (
+    <div>
+      <MenuItem>
+        <Button primary>Giriş yap</Button>
+        <Button primary style={{marginLeft:"0.5em"}}>Kayıt ol</Button>
+      </MenuItem>
+    </div>
+  );
+}
+.........................................................................
+code son hali:
+import React from "react";
+
+import { Button, MenuItem } from "semantic-ui-react"; //intelisence
+
+export default function SignedOut(props) { //SECTION 12: props geçmek - SignedOut(props)
+  return (
+    <div>
+      <MenuItem>
+        <Button primary>Giriş yap</Button>
+        <Button primary style={{marginLeft:"0.5em"}}>Kayıt ol</Button>
+      </MenuItem>
+    </div>
+  );
+}
+.............................................................................
+
+
+
+
 */

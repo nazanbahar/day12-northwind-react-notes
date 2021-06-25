@@ -29,10 +29,6 @@ path: src\layouts\SignedIn.jsx
 2. layouts--> Right Click > New File> FileName= SignedOut.jsx
 path: src\layouts\SignedOut.jsx
 
-
-
-
-
 ### ``
 ======================================================================
 ## Google search: `semantic ui react`
@@ -50,9 +46,9 @@ path: src\layouts\SignedOut.jsx
 2. Bir component'de diğerine geçiş yaparken veri taşımayla ilgili 
 kısacası React'da Prop'larla ilgili bir çalışma yapacağız.
 3. React ana konusu bir component'den alt component'e data veya event nasıl taşırız?
-============================================================================
+======================================================================
 
-****************************************************************************
+**********************************************************************
 ============================================================================
 ### SENARYO: 1 - FAKE bir Autontication Ortamı Oluşturacağız. 
 1. google search: semantic ui react 
@@ -143,11 +139,92 @@ Biz sisteme kayıt olmadıysak butonların gelmesi gerekiyor. Giriş yap, Kayıt
 1. Çıkış yap butonuna bastığımızda isAuthenticated ı değiştirmem gerekiyor.
 2. setIsAuthenticated ı kullanarak ona true yada false bilgini geçebilirsin.
 3. SigIn.jsx'den başlayalım.
-
-
+4. YILDIZLI NOT: function with snippet handleSignOut() oluşturalım. Biz fonksiyonu buraya yazmak zorundayız çünkü stati yönettiğimiz yer Navi.jsx 'dir. State i navi kullanıyor. O yüzden state i değiştirmen gerekiyor. Bunu çağıracak olan alt componenttir. Yani bizim alt Component'e bir fonksiyon yollamamız lazım.
+5. ÖZETLE: bizim alt component'e bir fonksiyon yollamamız lazım.
+6. Nereye Yollayacağız?
+SignedIn'e çünkü giriş yapmış.
 
 ======================================================================
+### function tanımlamak
+7. function tanımlamak
+//function with snippet handleSignOut() SECTION -12
+  function handleSignOut(params) {   //SECTION -12 -aarams
+    //çıkış yapmayı handle edelim
+    setIsAuthenticated(false)  //true yu false çekiyoruz. Bunu da oraya göndereğiz.
+  }
+
 ======================================================================
+### Alt Component'e Data Geçmek
+8.  syntax code Navi.jsx 
+{isAuthenticated ? <SignedIn signOut={handleSignOut} /> : <SignedOut />} 
+
+### Fonksiyona Props  Atamak- Fonksiyona değer atamak
+{isAuthenticated ? <SignedIn signOut={handleSignOut} bisey={}/> : <SignedOut />} 
+s1. bisey="1" değerini atamak
+### `{isAuthenticated ? <SignedIn signOut={handleSignOut} bisey="1"/> : <SignedOut />} `
+
+======================================================================
+### USING Props  -SignedIn.jsx'de...
+1. SignedIn.jsx'de... 
+2. Biz Navi.jsx'de bu hareketi yaptığımızda; 
+3. SignIn.jsx içindeki return fonksiyonu çağrılıyor. 
+4. Demekki onlarda onun parametreleri biz de props diye geçebiliriz.
+5. syntax code
+### `export default function SignedIn(props) { //SECTION 12- props}`
+
+======================================================================
+### AÇIKLAMA
+1. Çıkış yap buttonuna tıkladığımız zaman, propslardaki, propslar encapsulationdır.
+2. Navi.jsx içindeki signOut={handleSignOut} bisey="1" bu iki değer props ın içindedir.
+3. Bu propslardaki handleSignOut çalıştırarak devreye alabilir.
+======================================================================
+## SignIn.jsx'de <Dropdown.Item> içine OnClick event vermek 
+1. Nasıl kullanıcaz? SignIn.jsx'de Dropdown'a tıklandığında olayını yakalamamamız lazım.
+###  ` <Dropdown.Item onClick={props.signOut} text="Çıkış" icon="sign-out" /> `
+
+======================================================================
+### Kayıt ol ve Giriş yap Buttonları için OnClick event vermek 
+1. Giriş yap butonuna basınca avartar gelsin. Giriş yap true ya çeksin.
+2. Navi.jsx'de fonksiyon tanımla
+function with snippet handleSignIn()→ TRUE SECTION -12
+  function handleSignIn() {}
+3.  return ( <div> ...)  içinde
+<SignedOut signIn={handleSignIn} /> //SECTION -12 : added code  ekle.
+...................................................................
+<Menu.Menu position="right">
+            <CartSummary />
+            {/* ANCHOR {} süslü prantez içinde buraya Ternay Operatörü Ekleyelim STATE Bilgisi için}     -- //SECTION -12*/}
+            {isAuthenticated ? (
+              <SignedIn signOut={handleSignOut} bisey="1" />
+            ) : (
+              <SignedOut signIn={handleSignIn} /> //SECTION -12 : added code
+            )}
+          </Menu.Menu>
+....................................................................
+4. Singout.jsx'de props geçmek - SignedOut(props)
+export default function SignedOut(props) { //SECTION 12: props geçmek - SignedOut(props)
+......................................................................
+======================================================================
+5.  OnClick eventi vermek - SingOut.jsx'de(Giriş yap butonuna tıklandığında)
+<Button onClick={props.signIn} primary>Giriş yap</Button>
+6. YILDIZLI NOT: Burada props encapsulation geliyor. props ın signIn ini şeklide. Biz burda destruction yaparız. Ezbere yapma....
+7. Objeleri nasıl destruct ediyorduk?
+8. objeleri destruct etmek → props geçmek yerine obje destruct ediyorduk.
+changed code → export default function SignedOut(props) {}
+new code → export default function SignedOut({ signIn }) {}
+
+YILDIZLI NOT: SingedOut.jsx
+1. heryere props yazmak yerine obje destruct etmemiz laızm.
+2. changed code → export default function SignedOut(props) {}
+3. new destruct obje code → export default function SignedOut({signIn}) {}
+4. her yere props demene gerek kalmaz.
+changed code → <Button onClick={props.signIn} primary>Giriş yap</Button>
+new code →   <Button onClick={signIn} primary>Giriş yap</Button>
+======================================================================
+
+
+
+
 
 ======================================================================
 
