@@ -17,7 +17,7 @@ DAY12 NORTHWIND REACT NOTES
 ### `npm install axios`
 ======================================================================
 ## Day12th intalled packages
-### ``
+### `npm install react-router-dom`
 ### ``
 ======================================================================
 ## CREATE FILE - COMPONENT
@@ -221,6 +221,53 @@ YILDIZLI NOT: SingedOut.jsx
 changed code → <Button onClick={props.signIn} primary>Giriş yap</Button>
 new code →   <Button onClick={signIn} primary>Giriş yap</Button>
 ======================================================================
+## Root İşlemi Yapmak
+1. Ürüne tıkladığımızda o ürünün detayına gidelim.
+2. HATIRLATMA: Birbiriyle ilişkisi zayıf componnetlerde veri taşımayı nasıl yapacağız. Bu aşamada da redux kullanacağız. 
+Component hiyerarşimize göre ürünler ile Navi aynı hiyerarşide direkt bağlantıları yok. bağlantıları navi üzerinde var o yüzden farklı componentlerde datayı nasıl taşıyacağımızı konuşacağız. 
+Bu noktada Redux Thunk da kullanacağız. Asenkron operasyonları veri kaynağına API'ye bağlanarak yapılan çalışmaları da bu alt yapıyla görmüş olacağız.  
+
+### Root İşlemi Nedir?
+1. Linktir kısacası bir şeye tıkladığımızda diğer şeyi açmaktır.
+2. Single Page Application çalışıyoruz.
+### YILDIZLI NOT: Dolayısıyla bizim yapacağımız iş bir componenti kapatıp, başka bir componenti açmaktır.
+
+###  IMPORT `npm install react-router-dom`
+kuralım. react için yazılmış en popüler pakettir. Core içinde gelmez. React iiçin yazılmış projemize dahil ediyoruz.
+3. package.json'da  react-router-dom eklendiğini görelim.
+4. Kendi layoutumuzda çalışacağız. Dolayısıyla Dashboard.jsx'e geçelim. Root işlemini istediğimiz ana componentte yapabiliriz. Başka componentlerde de root işlemi yapabiliriz.
+
+
+### İŞLEM ADIMLARI 
+### 1. index.js
+1. <BrowserRouter> ile Sarmallama yapalım.<App /> için
+ReactDOM.render(
+<BrowserRouter>
+<App />
+</BrowserRouter>
+,document.getElementById("root")
+);
+
+2. import
+### `import { BrowserRouter } from "react-router-dom"; //BrowserRouter sarmallama for <App />`
+
+### 1. Dashboardjsx 
+1. import
+### `import { Route } from "react-router";`
+
+2.  route exact path 
+### `<Route exact path="/" component={ProductList} />`   
+### `<Route path="/products" component={ProductList} />`
+
+3. Definition
+### `path="/"` → Ana Component - {ProductList} i aç. Ana Sayfa, localhost:3000 üzerine 
+### `localhost:3000` → Domain
+### `<Route path="/products"`→ dersek de {ProductList} i aç. 
+### `http://localhost:3000/products`dersek de {ProductList} açılacaktır.
+### exact → tam path olsun. default değer true dur. 
+### `http://localhost:3000/xyz` yazarsak birşey gelmez. exact keywordu nedeniyle tam path arar.
+
+
 
 
 
