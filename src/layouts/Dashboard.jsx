@@ -5,6 +5,8 @@ import Categories from "./Categories";
 import { Grid } from "semantic-ui-react"; //for table grid import
 //import { Route } from "react-router"; // SECTION 12 Route...
 import { Route } from "react-router";
+import ProductDetail from "../pages/ProductDetail";
+import CartDetail from "../pages/CartDetail";
 export default function Dashboard() {
   return (
     <div>
@@ -19,8 +21,10 @@ export default function Dashboard() {
             SECTION 12 Route...→ 3) <Route path="/products" component={ProductList} />  */}
             {/* <Route/> */}
             <Route exact path="/" component={ProductList} />   
-            <Route path="/products" component={ProductList} /> 
-
+            <Route exact path="/products" component={ProductList} />
+            {/* USING PARAMETER: <Route path="/products/:id" */} 
+            <Route path="/products/:id" component={ProductDetail} /> 
+            <Route exact path="/cart" component={CartDetail} /> 
           </Grid.Column>
         </Grid.Row>
       </Grid>
@@ -78,8 +82,29 @@ ReactDOM.render(
 ### `http://localhost:3000/products`dersek de {ProductList} açılacaktır.
 ### exact → tam path olsun. default değer true dur. 
 ### `http://localhost:3000/xyz` yazarsak birşey gelmez. exact keywordu nedeniyle tam path arar.
+-----------------------------------------------------------------------
+
+step6: 
+1. ProductDetail Route path ekleyelim.
+<Route path="/products/1" component={ProductDetail} /> 
+2. import ekleyelim.
+import ProductDetail from "../pages/ProductDetail";
+3. browser'da hata alacağız. Nedeni exactdir.
+YILDIZLI NOT: Eğer benzerlik varsa exact yapıştır.(example. Dashboard.jsx)
+
+### `<Route exact path="/products" component={ProductList} />` 
+4. Uyarı: Benzerlik var dikkat et!
+
+5. ### USING: Route WITH PARAMETER - Dashboard.jsx
+changed code → <Route path="/products/1" component={ProductDetail} /> 
+new code → <Route path="/products/:id" component={ProductDetail} />
 
 
+step7: CartDetail Route eklemek - Dashboard.jsx'de 
+1. CartDetail Route
+<Route exact path="/cart" component={CartDetail} /> 
+2. import ekle
+import CartDetail from "../pages/CartDetail";
 ===============================================================================
 ...............................................................................
 code son hali:

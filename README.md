@@ -29,7 +29,16 @@ path: src\layouts\SignedIn.jsx
 2. layouts--> Right Click > New File> FileName= SignedOut.jsx
 path: src\layouts\SignedOut.jsx
 
-### ``
+### CREATE PAGES FILE = ProductDetail.jsx
+3. pages--> Right Click > New File> FileName= ProductDetail.jsx
+path: src\pages\ProductDetail.jsx
+
+
+### CREATE PAGES FILE = CartDetail.jsx
+3. pages--> Right Click > New File> FileName= CartDetail.jsx
+path: src\pages\CartDetail.jsx
+
+
 ======================================================================
 ## Google search: `semantic ui react`
 [semantic ui react](https://react.semantic-ui.com/)[semantic ui react]
@@ -266,21 +275,67 @@ ReactDOM.render(
 ### `http://localhost:3000/products`dersek de {ProductList} açılacaktır.
 ### exact → tam path olsun. default değer true dur. 
 ### `http://localhost:3000/xyz` yazarsak birşey gelmez. exact keywordu nedeniyle tam path arar.
+======================================================================
+## ÖNEMLİ HATIRLATMALAR
+### ./ bulunduğunuzdizini temsil eder
+======================================================================
+## ProductDetail Sayfasının Açılması
+### CREATE PAGES FILE = ProductDetail.jsx
+3. pages--> Right Click > New File> FileName= ProductDetail.jsx
+path: src\pages\ProductDetail.jsx
+### ProductDetail.jsx 
+1. path: src\pages\ProductDetail.jsx
+2. rfc snipped ekle.
+......................................................................
+### Dashboard.jsx'e git
+1. ProductDetail Route path ekleyelim.
+<Route path="/products/1" component={ProductDetail} /> 
+2. import ekleyelim.
+import ProductDetail from "../pages/ProductDetail";
+3. browser'da hata alacağız. Nedeni exactdir.
+YILDIZLI NOT: Eğer benzerlik varsa exact yapıştır.(example. Dashboard.jsx)
 
-
-
-
-
-
+### `<Route exact path="/products" component={ProductList} />` 
+4. Uyarı: Benzerlik var dikkat et!
+### `<Route exact path="/" component={ProductList} />`   
+### `<Route exact path="/products" component={ProductList} />` 
+### `<Route path="/products/1" component={ProductDetail} />`
+5. Hangi ürüne tıklarsam onun numarası gelsin ve detay sayfası gelsin.
+Dolayısıyla parametre var. Parametreleri : ikinokta ile gösteriyoruz.
+......................................................................
+### USING: Route WITH PARAMETER - Dashboard.jsx
+### `<Route path="/products/:id" component={ProductDetail} />`
+1. Artık hangi parametreyi verirsek verelim gelecektir.
+======================================================================
+## CartDetail Route eklemek
+### CREATE PAGES FILE = CartDetail.jsx
+### pages--> Right Click > New File> FileName= CartDetail.jsx
+###  rfc snipped
+### Dashboard.jsx'de - CartDetail Route eklemek 
+1. CartDetail Route
+`<Route exact path="/cart" component={CartDetail} />` 
+2. import ekle
+`import CartDetail from "../pages/CartDetail";`
 
 ======================================================================
+## CartSummary.jsx'de Sepet Git steplerini Oluşturmak
+###  `<Dropdown.Divider/>`  - araya çizgi çekmek için
+### YILDIZLI NOT: AMAÇ: Sepete git e tıkladığımızda roote u çalıştırmak istiyoruz.
+### `<Dropdown.Item>Sepete git</Dropdown.Item>`
+### Link veya NavLink dediğimiz React-router-dom'dan gelen bir element ile yapıyoruz.
 
-======================================================================
+### SOLUTION: USING SEMANTIC:'Sen bir NavLink'sin'
+#### USING: NAVLINK : Bir yerden bir yere yönlendirmek için Kullan
+1. as={ NavLink } ekle
+### `<Dropdown.Item as={ NavLink }>Sepete git</Dropdown.Item>`
+2. intellicene auto import ekle
+### `import { NavLink } from "react-router-dom";    //for Sepete Ekle Navlink import`
 
-======================================================================
-
-======================================================================
-
+3.  to=""  → nereye gidecek?
+### `<Dropdown.Item as={ NavLink } to="/cart">Sepete git</Dropdown.Item>`
+### SOLUTION: DON'T USING SEMANTIC :'Sen bir Link'sin'
+1. <Link> importu otomatik gelecektir.
+2. UYARI: href i unut bunu kullanmayacağız.
 ======================================================================
 
 
