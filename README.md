@@ -396,12 +396,29 @@ Dashboard.jsx'deki Route daki parametrelerdir.
 2. ProductDetail.jsx'de useParams() bir fonksiyon ve bize bir obje dönderiyor. Biz onu destructure edebiliyoruz. Ordaki id yide okuyoruz.
 ### Birden fazla parametre göndermek istersek,
 ### `let { id, categoryId } = useParams();` bu şekilde okuruz.
-
-
  
 ======================================================================
 ## Çıkış Yap Tıkladığımızda Anasayfaya Gitsin
+### USING: [Use History] 
+1. Bir yerde kaldık başka yere yönlendirmek için kullanabiliriz.
+### WHERE: Navi.jsx Componenti içinde kullanırız.
+### function handleSignOut() {} fonksiyonu içinde kullanırız.
+2. keyword: useHistory
+### `useHistory`
+3. import ekle
+### `import { useHistory } from "react-router-dom";`
+4. DEĞİŞKEN ATA : history değişkenine atayalım. SECTION -12: useHistory()
+### `const history = useHistory()`
 
+5. FONKSIYON: NAVIGATION HOSTORY EKLEMEK
+  
+ ``` function handleSignOut() {
+    setIsAuthenticated(false); 
+
+    //NAVIGATION HISTORY→ ANASAYFAYA GİT
+    history.push("/")
+  }
+```
 ======================================================================
 ## Anasayfaya Tıkladığımızda Anasayfaya Gitsin
 ======================================================================

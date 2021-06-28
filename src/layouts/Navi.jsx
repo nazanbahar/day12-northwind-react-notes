@@ -3,16 +3,24 @@ import { Container, Menu } from "semantic-ui-react"; //for failed to compile err
 import CartSummary from "./CartSummary";
 import SignedOut from "./SignedOut";
 import SignedIn from "./SignedIn";
+import { useHistory } from "react-router-dom"; //useHistory: Çıkış Yap Tıkladığımızda Anasayfaya Gitsin
 
 export default function Navi() {
-  //destructure
+
+   //DESTRUCTURE 
   const [isAuthenticated, setIsAuthenticated] = useState(true); //SECTION -12
+
+  //HISTORY history değişkenine atayalım. SECTION -12: useHistory()
+  const history = useHistory();
 
   //function with snippet handleSignOut()→ FALSE SECTION -12
   function handleSignOut() {
     //SECTION -12 -params
     //çıkış yapmayı handle edelim
     setIsAuthenticated(false); //true yu false çekiyoruz. Bunu da oraya göndereğiz.
+    
+    //NAVIGATION HISTORY→ ANASAYFAYA GİT
+    history.push("/")
   }
 
   //function with snippet handleSignIn()→ TRUE SECTION -12
