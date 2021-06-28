@@ -337,6 +337,45 @@ Dolayısıyla parametre var. Parametreleri : ikinokta ile gösteriyoruz.
 1. <Link> importu otomatik gelecektir.
 2. UYARI: href i unut bunu kullanmayacağız.
 ======================================================================
+## Ürüne tıkladığımızda ürün detayına götürsün.
+1. Angular'daki RoouterLink'in aynısı) Bunlar hepsi birbirinin aynısı.
+2. props ile kullandığımız da Angular ile çok benzer. Sadece Angular'da html ve component entegrasyonunu bilmen seni koruyor. Bunlar birbirine benzeyen yapılar. Örneğin, Redux i biliyorsan. İster React-Redux kullan, ister ngrx kullan ister vuex kullan. Herbiri popüler redux implementasyonudur. Bu senin için hep aynıdır. Uzun süre react ile çalışmasan da hepsinin mantığı aynıdır. Arada nasıl yazıldığına google dan bakıyor. Olaya yaklaşım o olmalı.      
+Asla kendini bir codea bağlı kalma. Özetle herbir ürünü link haline getireceğiz.
+
+### Herbir ürünü link haline getirmek
+### ProductList.jsx Git
+1. USING: ProductName i Link haline getireceğiz.
+### `{<Table.Cell>{ product.productName }</Table.Cell> }`
+### `{<Table.Cell>{ product.productName }</Table.Cell> }`
+2. Link vermek
+ ### `{<Table.Cell><Link>{ product.productName }</Link></Table.Cell> }`
+3. back tick yap - <Link to={``}>
+ ### ` {<Table.Cell><Link to={}>{ product.productName }</Link></Table.Cell> }`
+4. String ile birleştirmek yerine direkt birleştiriyorsun.
+Avantajı, C# ve java'da da vardır. 
+"metin-1" + "metin-2" iki metin varsa bellekte farklı yerlerde tutuyor. Toplamını başka yerde tutuyor. Bu sayede tek string ile işi bitiriyor.
+
+5. buraya code yaz. → <Link to={ `/products/${ //buraya code yaz }` }>
+### `{<Table.Cell><Link to={ `/products/${ //buraya code yaz }` }>{ product.productName }</Link></Table.Cell> }`
+
+6. <Link to={ `/products/${product.id}` }>
+### ` {<Table.Cell><Link to={ `/products/${product.id}` }>{ product.productName }</Link></Table.Cell> }`
+
+7. import ekle
+### `import { Link } from "react-router-dom"; //using for product Link `
+
+======================================================================
+
+
+======================================================================
+## Anasayfaya Tıkladığımızda Anasayfaya Gitsin
+======================================================================
+
+======================================================================
+
+======================================================================
+
+======================================================================
 
 
 
