@@ -7,6 +7,9 @@ import { Grid } from "semantic-ui-react"; //for table grid import
 import { Route } from "react-router";
 import ProductDetail from "../pages/ProductDetail";
 import CartDetail from "../pages/CartDetail";
+
+//<Route path="/products/:id/category/:id2" component={ProductDetail} /> → Dashboard.jsx'deki ikinci parametre vermek istersek
+
 export default function Dashboard() {
   return (
     <div>
@@ -22,7 +25,7 @@ export default function Dashboard() {
             {/* <Route/> */}
             <Route exact path="/" component={ProductList} />   
             <Route exact path="/products" component={ProductList} />
-            {/* USING PARAMETER: <Route path="/products/:id" */} 
+            {/* USING PARAMETER: <Route path="/products/:id"  */} 
             <Route path="/products/:id" component={ProductDetail} /> 
             <Route exact path="/cart" component={CartDetail} /> 
           </Grid.Column>

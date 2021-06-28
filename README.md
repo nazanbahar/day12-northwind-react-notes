@@ -365,12 +365,45 @@ Avantajı, C# ve java'da da vardır.
 ### `import { Link } from "react-router-dom"; //using for product Link `
 
 ======================================================================
+## Detay Sayfasında Değeri Yakalamak → useParams() Bana Parametreleri veriyor(Obje Olarak)
+1. ProductDetail'e gittiğim zaman oradaki id yi nasıl okuyacağım. 
+2. keywords: useParams()
+## useParams()
+3. import ekle
+## `import { useParams } from 'react-router-dom' //SECTION 12: useParams`,
+4. Destructure işlemi yapacağız
+destructure yapalım useParams() için → aslında let {id:id} demektir.
+5. YILDIZLI NOT: uyarı bu notasyonda iki tarafta aynıysa birini yazman yeterlidir.
+    let {id} = useParams()
+6. Code Son hali
 
+import React from "react";
+import { useParams } from "react-router-dom"; //useParams
+
+export default function ProductDetail() {
+  let { id } = useParams();
+
+  return <div>Ürün : {id}</div>;
+}
+7. Parametreler
+Dashboard.jsx'deki Route daki parametrelerdir.
+### `<Route path="/products/:id" component={ProductDetail} />`
+
+### Dashboard.jsx'deki ikinci parametre vermek istersek
+### `<Route path="/products/:id/category/:id2" component={ProductDetail} />`
+### YILDIZLI NOT: 
+1. Biz istersek, buradaki iki parametreyi bize obje olarak veriyor. 
+2. ProductDetail.jsx'de useParams() bir fonksiyon ve bize bir obje dönderiyor. Biz onu destructure edebiliyoruz. Ordaki id yide okuyoruz.
+### Birden fazla parametre göndermek istersek,
+### `let { id, categoryId } = useParams();` bu şekilde okuruz.
+
+
+ 
+======================================================================
+## Çıkış Yap Tıkladığımızda Anasayfaya Gitsin
 
 ======================================================================
 ## Anasayfaya Tıkladığımızda Anasayfaya Gitsin
-======================================================================
-
 ======================================================================
 
 ======================================================================

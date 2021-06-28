@@ -22,6 +22,18 @@ export default function ProductList() {
 
 //Table Celled Header settings: SwaggerUI - http://localhost:8080/swagger-ui.html adresinden bir adet ürün örneği alalım 
 //ve celled-headerlara göre column bilgisi alalım.  
+// example
+//{
+      // "id": 1,
+      // "productName": "Chai",
+      // "unitPrice": 18,
+      // "unitsInStock": 39,
+      // "quantityPerUnit": "10 boxes x 30 bags",
+      // "category": {
+      //   "categoryId": 1,
+      //   "categoryName": "Beverages"
+      // }
+       
 return (
     <div>
       <Table celled>
@@ -35,17 +47,6 @@ return (
           </Table.Row>
         </Table.Header>
 
-        {/* {
-      "id": 1,
-      "productName": "Chai",
-      "unitPrice": 18,
-      "unitsInStock": 39,
-      "quantityPerUnit": "10 boxes x 30 bags",
-      "category": {
-        "categoryId": 1,
-        "categoryName": "Beverages"
-      }
-       */}
 
         <Table.Body>
           {
@@ -53,9 +54,10 @@ return (
             products.map((product) => (
               //step2: TODO: productları map et ve jsx üret...
               //step3: Table-Row tekrar edeceği için buraya taşı!
+               //celled-headerlara göre column bilgisi alalım - UYARI: category dikkat→ product.category.categoryName şeklinde...
+              //SECTION -12 productName e link vermek
               <Table.Row key={ product.id } >  
-                {/* celled-headerlara göre column bilgisi alalım - UYARI: category dikkat→ product.category.categoryName şeklinde...*/}
-                {/* //SECTION -12 productName e link vermek*/}
+               
                 {<Table.Cell><Link to={ `/products/${product.id}` }>{ product.productName }</Link></Table.Cell> }
                 <Table.Cell>{ product.unitPrice }</Table.Cell>
                 <Table.Cell>{ product.unitsInStock }</Table.Cell>
@@ -173,7 +175,7 @@ return (
           </Table.Row>
         </Table.Header>
 
-        {/* {
+        { {
       "id": 1,
       "productName": "Chai",
       "unitPrice": 18,
@@ -183,7 +185,7 @@ return (
         "categoryId": 1,
         "categoryName": "Beverages"
       }
-       */}
+       }
 
 //        <Table.Body>
 //        {
@@ -192,8 +194,8 @@ return (
 //            //step2: TODO: productları map et ve jsx üret...
 //            //step3: Table-Row tekrar edeceği için buraya taşı!
 //            <Table.Row key={ product.id } >  
-//              {/* celled-headerlara göre column bilgisi alalım - UYARI: category dikkat→ product.category.categoryName şeklinde...*/}
-//              {/* //SECTION -12 productName e link vermek*/}
+//              // celled-headerlara göre column bilgisi alalım - UYARI: category dikkat→ product.category.categoryName şeklinde...
+//               //SECTION -12 productName e link vermek
 //              {<Table.Cell><Link to={ `/products/${product.id}` }>{ product.productName }</Link></Table.Cell> }
 //              <Table.Cell>{ product.unitPrice }</Table.Cell>
 //              <Table.Cell>{ product.unitsInStock }</Table.Cell>
