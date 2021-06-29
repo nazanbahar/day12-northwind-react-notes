@@ -412,19 +412,33 @@ Dashboard.jsx'deki Route daki parametrelerdir.
 
 5. FONKSIYON: NAVIGATION HOSTORY EKLEMEK
   
- ``` function handleSignOut() {
-    setIsAuthenticated(false); 
+### ``` function handleSignOut() {
+###    setIsAuthenticated(false); 
 
-    //NAVIGATION HISTORY→ ANASAYFAYA GİT
-    history.push("/")
-  }
-```
+###    //NAVIGATION HISTORY→ ANASAYFAYA GİT
+###    history.push("/")
+###  }```
+======================================================================
+## USING: CARD- Sepete Ekle ve Favoriler Card Kullanımı
+### SEMANRIC UI- CARD `https://react.semantic-ui.com/views/card/`
+1. Card Grup `https://react.semantic-ui.com/views/card/#types-groups`
+2. COPY - CODE: ` <Card.Group> </Card.Group>` içeriğini kopyalayalım. 
+3.  PASTE CODE POINT → ProductDetail.jsx 'de  return <div> içindeki  Ürün : {id} yerine PASTE Edelim.
+### `return <div>POINT→ Ürün : {id}</div>;`
+4. semantic-ui'da kopyaladığımız card için gerekli importu da yapmamız gerekiyor.
+5. semantic ui webpage must imported.
+### `import { Button, Card, Image } from 'semantic-ui-react'` 
+6. <Card.Group> içinde bir adet card kalsın diğerlerini silelim.
+7. image boyutu istersek size="mini" yerine size="big" yapabiliriz.
+8. Card'a fluid özelliği verirsek daha geniş bir görüntü elde edeceğiz.
+###  `<Card fluid>`
+======================================================================
+
+
+
+
 ======================================================================
 ## Anasayfaya Tıkladığımızda Anasayfaya Gitsin
-======================================================================
-
-======================================================================
-
 ======================================================================
 
 
